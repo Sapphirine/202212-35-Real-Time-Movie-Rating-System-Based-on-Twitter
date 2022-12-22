@@ -6,11 +6,11 @@ from google.cloud import pubsub_v1
 import datetime
 import os
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/cengwenxin/Desktop/heroic-outpost-362100-d65845db5a1c.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "......"
 
 
 # the passwords needed to get access in the twitter api
-bearer_token = "AAAAAAAAAAAAAAAAAAAAANxtbgEAAAAARqRWpqtsy3IMhXLObYOpMZPzMdE%3DGsndMQxD7HPC3R88LeLtpkBQ1DWvYIscOy95yBdPXIhB04fgLn"
+bearer_token = "........"
 class TweetStream(tweepy.StreamingClient):
     def __init__(self, bearer_token, **kwargs):
         super().__init__(bearer_token, **kwargs)
@@ -108,7 +108,7 @@ class TweetStream(tweepy.StreamingClient):
 
 
 if __name__ == "__main__":
-    _rules = {'BlackPanther': 'black panther lang:en', 'WomanKing': 'woman king lang:en', 'BlackAdam': 'black adam lang:en', 'GlassOnion': 'glass onion lang:en', 'Slumberland': 'slumberland lang:en'}
+    _rules = {} # format as {'BlackPanther': 'black panther lang:en'}
     d = TweetStream(bearer_token)
     d.create_rules(_rules)
-    d.start_stream(autostop=3600)
+    d.start_stream(autostop=3600) # any time-duration you want
