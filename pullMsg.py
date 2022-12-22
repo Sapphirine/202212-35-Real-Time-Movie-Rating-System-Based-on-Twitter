@@ -10,10 +10,10 @@ from dateutil import parser
 import numpy as np
 
 # environment variable setup for private key file
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/cengwenxin/Desktop/heroic-outpost-362100-d65845db5a1c.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "........"
 
 # GCP topic, project & subscription ids
-PUB_SUB_PROJECT = "heroic-outpost-362100"
+PUB_SUB_PROJECT = "......."
 
 # Pub/Sub consumer timeout
 timeout = 5.0
@@ -67,9 +67,9 @@ def consume_payload(project, subscription, callback):
 
 # loop to test producer and consumer functions with a 3 second delay
 if __name__ == "__main__":
-    PUB_SUB_TOPIC = "GlassOnion"
+    PUB_SUB_TOPIC = "movie_name"
     PUB_SUB_SUBSCRIPTION = PUB_SUB_TOPIC + "-sub"
-    TABLE = "heroic-outpost-362100.movie_tweets." + PUB_SUB_TOPIC.lower()
+    TABLE = "table_name_inside_bigquery" + PUB_SUB_TOPIC.lower()
     while True:
         print("===================================")
         consume_payload(PUB_SUB_PROJECT, PUB_SUB_SUBSCRIPTION, process_payload)
